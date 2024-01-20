@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tnb/country-top-news",
+	"version": "0.1.0",
+	"title": "Country Top News",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "Top News for a country.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"countryCode": {
+			"type": "string",
+			"default": "uk"
+		}
+	},
+	"parent": ["tnb/top-news"],
+	"textdomain": "tnb-top-news",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}
