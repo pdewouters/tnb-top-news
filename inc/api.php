@@ -63,10 +63,13 @@ function fetch_articles( string $country_code ): array {
  * @return array
  */
 function get_articles( string $country_code ): array {
-	$articles = \get_transient( TNB_TOP_NEWS_TRANSIENT_KEY . $country_code );
+	$base_expiration  = 1 * MINUTE_IN_SECONDS;
+	$random_extension = wp_rand( 0, 1 * MINUTE_IN_SECONDS );
+	$expiration       = $base_expiration + $random_extension;
+	$articles         = \get_transient( TNB_TOP_NEWS_TRANSIENT_KEY . $country_code );
 	if ( $articles === false ) {
 		$articles = fetch_articles( $country_code );
-		\set_transient( TNB_TOP_NEWS_TRANSIENT_KEY . $country_code, $articles, 1 * MINUTE_IN_SECONDS );
+		\set_transient( TNB_TOP_NEWS_TRANSIENT_KEY . $country_code, $articles, $expiration );
 	}
 
 	return $articles;
