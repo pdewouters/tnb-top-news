@@ -19,6 +19,10 @@ namespace TNB_Top_News;
 
 const DIR = __DIR__;
 
+require_once __DIR__ . '/inc/blocks.php';
+require_once __DIR__ . '/inc/rest.php';
+require_once __DIR__ . '/inc/api.php';
+require_once __DIR__ . '/inc/namespace.php';
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
