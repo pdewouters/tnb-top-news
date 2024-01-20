@@ -51,6 +51,8 @@ function fetch_articles( string $country_code ): array {
 	if ( ! isset( $body['articles'] ) ) {
 		return [];
 	}
+
+	return $body['articles'];
 }
 
 /**
