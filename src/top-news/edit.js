@@ -3,11 +3,11 @@ import './editor.scss';
 
 const TEMPLATE = [
 	['core/heading', {placeholder: 'Add Title', level: 2}],
-	['tnb/country-top-news', {country: 'uk'}],
-	['tnb/country-top-news', {country: 'us'}],
-	['tnb/country-top-news', {country: 'fr'}],
-	['tnb/country-top-news', {country: 'au'}],
-	['tnb/country-top-news', {country: 'in'}],
+	['tnb/country-top-news', {countryCode: 'uk'}],
+	['tnb/country-top-news', {countryCode: 'us'}],
+	['tnb/country-top-news', {countryCode: 'fr'}],
+	['tnb/country-top-news', {countryCode: 'au'}],
+	['tnb/country-top-news', {countryCode: 'in'}],
 ];
 export default function Edit() {
 	const blockProps = useBlockProps( { className: 'my-class' } );
