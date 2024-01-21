@@ -14,7 +14,7 @@
 	"attributes": {
 		"countryCode": {
 			"type": "string",
-			"default": "uk"
+			"default": "gb"
 		}
 	},
 	"parent": ["tnb/top-news"],
