@@ -1,4 +1,5 @@
 import * as Ariakit from '@ariakit/react';
+import { __, sprintf } from '@wordpress/i18n';
 
 import Article from './Article';
 
@@ -24,10 +25,11 @@ export default function App( { tabsData } ) {
 							key={ tab }
 							tabId={ panelIndex === 0 ? defaultSelectedId : tab }
 						>
-							<h3 className='tnb-top_news__heading'>
-								Headlines for { tabsData[ tab ].countryName }
+							<h3 className="tnb-top_news__heading">
+								sprintf( __( 'Headlines for %s', 'tnb-top-news'
+								), tabsData[tab].countryName )
 							</h3>
-							<ul className='tnb-top_news__article-list'>
+							<ul className="tnb-top_news__article-list">
 								{ tabsData[ tab ].articles.map(
 									( article, index ) => (
 										<Article
