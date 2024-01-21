@@ -90,6 +90,14 @@
 			display: grid;
 			grid-template-columns: repeat(2, 1fr);
 			gap: 0.5rem;
+
+			& > li:nth-child(odd) {
+				background-color: transparent;
+
+				&:hover {
+					background-color: #f0f0f0;
+				}
+			}
 		}
 	}
 
@@ -97,5 +105,11 @@
 		padding: 10px 20px;
 		border: 1px solid #ccc;
 		margin-bottom: 20px;
+
+		@media (min-width: 768px) {
+			&:hover {
+				background-color: #f0f0f0;
+			}
+		}
 	}
 }
