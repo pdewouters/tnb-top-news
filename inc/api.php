@@ -68,7 +68,9 @@ function get_articles( string $country_code ): array {
 	$articles         = \get_transient( TNB_TOP_NEWS_TRANSIENT_KEY . $country_code );
 	if ( $articles === false ) {
 		$articles = fetch_articles( $country_code );
-		\set_transient( TNB_TOP_NEWS_TRANSIENT_KEY . $country_code, $articles, $expiration );
+		if ( ! empty( $articles ) ) {
+			\set_transient( TNB_TOP_NEWS_TRANSIENT_KEY . $country_code, $articles, $expiration );
+		}
 	}
 
 	return $articles;
