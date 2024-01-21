@@ -12,7 +12,7 @@ namespace TNB_Top_News\API;
 const TNB_TOP_NEWS_TRANSIENT_KEY = 'tnb_top_news_';
 
 const BASE_URL                  = 'https://newsapi.org/v2/top-headlines';
-const TNB_TOP_NEWS_API_KEY      = '76dfe3aa58a446c29ad54fdabd10a8d1';
+const TNB_TOP_NEWS_API_KEY      = 'd81877898031403a9dc0d40111ab8c65';
 const TNB_TOP_NEWS_MAX_ARTICLES = 5;
 
 /**
@@ -63,7 +63,7 @@ function fetch_articles( string $country_code ): array {
  * @return array
  */
 function get_articles( string $country_code ): array {
-	$base_expiration  = 1 * MINUTE_IN_SECONDS;
+	$base_expiration  = 1 * HOUR_IN_SECONDS;
 	$random_extension = wp_rand( 0, 1 * MINUTE_IN_SECONDS );
 	$expiration       = $base_expiration + $random_extension;
 	$articles         = \get_transient( TNB_TOP_NEWS_TRANSIENT_KEY . $country_code );
