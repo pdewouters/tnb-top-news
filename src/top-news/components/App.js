@@ -7,18 +7,22 @@ export default function App( { tabsData } ) {
 	return (
 		<>
 			<Ariakit.TabProvider defaultSelectedId={ defaultSelectedId }>
-				<Ariakit.TabList className="tab-list" aria-label="Groceries">
+				<Ariakit.TabList className="tab-list" aria-label="Top News">
 					{ Object.keys( tabsData ).map( ( tab, index ) => (
-						<Ariakit.Tab key={ tab } id={ index === 0 ? defaultSelectedId : tab } className="tab">
+						<Ariakit.Tab
+							key={ tab }
+							id={ index === 0 ? defaultSelectedId : tab }
+							className="tab"
+						>
 							{ tabsData[ tab ].countryName }
 						</Ariakit.Tab>
 					) ) }
 				</Ariakit.TabList>
 				<div className="panels">
-					{ Object.keys( tabsData ).map( ( tab, index ) => (
+					{ Object.keys( tabsData ).map( ( tab, panelIndex ) => (
 						<Ariakit.TabPanel
 							key={ tab }
-							tabId={ index === 0 ? defaultSelectedId : tab }
+							tabId={ panelIndex === 0 ? defaultSelectedId : tab }
 						>
 							<h3>
 								Headlines for { tabsData[ tab ].countryName }

@@ -15,6 +15,10 @@
 		"countryCode": {
 			"type": "string",
 			"default": "gb"
+		},
+		"articles": {
+			"type": "array",
+			"default": []
 		}
 	},
 	"parent": ["tnb/top-news"],
