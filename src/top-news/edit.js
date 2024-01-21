@@ -3,7 +3,7 @@ import './editor.scss';
 
 const TEMPLATE = [
 	['core/heading', {placeholder: 'Add Title', level: 2}],
-	['tnb/country-top-news', {countryCode: 'uk'}],
+	['tnb/country-top-news', {countryCode: 'gb'}],
 	['tnb/country-top-news', {countryCode: 'us'}],
 	['tnb/country-top-news', {countryCode: 'fr'}],
 	['tnb/country-top-news', {countryCode: 'au'}],
