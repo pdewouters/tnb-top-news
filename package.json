@@ -18,5 +18,8 @@
 	"devDependencies": {
 		"@wordpress/env": "^9.1.0",
 		"@wordpress/scripts": "^27.0.0"
+	},
+	"dependencies": {
+		"@ariakit/react": "^0.4.0"
 	}
 }
