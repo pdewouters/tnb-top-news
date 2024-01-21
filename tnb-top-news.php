@@ -24,6 +24,7 @@ require_once __DIR__ . '/inc/utils.php';
 require_once __DIR__ . '/inc/blocks.php';
 require_once __DIR__ . '/inc/rest.php';
 require_once __DIR__ . '/inc/api.php';
+require_once __DIR__ . '/inc/admin.php';
 require_once __DIR__ . '/inc/namespace.php';
 
 if ( ! defined( 'ABSPATH' ) ) {

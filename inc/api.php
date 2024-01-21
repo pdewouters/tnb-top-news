@@ -12,7 +12,6 @@ namespace TNB_Top_News\API;
 const TNB_TOP_NEWS_TRANSIENT_KEY = 'tnb_top_news_';
 
 const BASE_URL                  = 'https://newsapi.org/v2/top-headlines';
-const TNB_TOP_NEWS_API_KEY      = 'd81877898031403a9dc0d40111ab8c65';
 const TNB_TOP_NEWS_MAX_ARTICLES = 5;
 
 /**
@@ -33,7 +32,7 @@ function fetch_articles( string $country_code ): array {
 		),
 		[
 			'headers' => [
-				'X-Api-Key'  => TNB_TOP_NEWS_API_KEY,
+				'X-Api-Key'  => get_option( 'newsapi_api_key' ),
 				'User-Agent' => 'TNB Top News',
 			],
 		]

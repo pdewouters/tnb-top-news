@@ -26,8 +26,10 @@ export default function App( { tabsData } ) {
 							tabId={ panelIndex === 0 ? defaultSelectedId : tab }
 						>
 							<h3 className="tnb-top_news__heading">
-								sprintf( __( 'Headlines for %s', 'tnb-top-news'
-								), tabsData[tab].countryName )
+								{ sprintf(
+									__( 'Headlines for %s', 'tnb-top-news' ),
+									tabsData[ tab ].countryName
+								) }
 							</h3>
 							<ul className="tnb-top_news__article-list">
 								{ tabsData[ tab ].articles.map(
