@@ -23,7 +23,9 @@ export default function Article( { articleData } ) {
 			<article className="tnb-top_news__article">
 				<h4 className="tnb-top_news__article-title">{ title }</h4>
 				<p className="tnb-top_news__article-link">
-					<a href={ url }>Read full article</a>
+					<a href={ url } target="__blank">
+						Read full article <span aria-hidden="true">↗</span>
+					</a>
 				</p>
 				<p className="tnb-top_news__article-author">by { author }</p>
 				<p className="tnb-top_news__article-source">
