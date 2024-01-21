@@ -1,6 +1,6 @@
 import * as Ariakit from '@ariakit/react';
 
-export default function Tab({articles}) {
+export default function TabPanel({key,articles}) {
 	return (
 		<Ariakit.TabPanel>
 			<ul>
