@@ -1,6 +1,5 @@
 export default function Article( { articleData } ) {
 	const { title, author, source, publishedAt, url } = articleData;
-	// Format the date in British format (Day Month Year)
 	const humanReadableDate = new Date( publishedAt ).toLocaleDateString(
 		'en-GB',
 		{
@@ -20,13 +19,17 @@ export default function Article( { articleData } ) {
 		}
 	);
 	return (
-		<li>
-			<article>
-				<h4>{ title }</h4>
-				<p><a href={url}>Read full article</a></p>
-				<p>by { author }</p>
-				<p>Source: { source.name }</p>
-				<p>
+		<li className="tnb-top_news__article-list-item">
+			<article className="tnb-top_news__article">
+				<h4 className="tnb-top_news__article-title">{ title }</h4>
+				<p className="tnb-top_news__article-link">
+					<a href={ url }>Read full article</a>
+				</p>
+				<p className="tnb-top_news__article-author">by { author }</p>
+				<p className="tnb-top_news__article-source">
+					Source: { source.name }
+				</p>
+				<p className="tnb-top_news__article-publishedAt">
 					<time dateTime={ publishedAt }>
 						on{ ' ' }
 						{ `${ humanReadableDate }, at ${ humanReadableTime }` }

@@ -75,3 +75,27 @@
 .panels {
 	padding: 0.5rem;
 }
+
+.tnb-top_news {
+	&__article-list {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+
+		& > li:nth-child(odd) {
+			background-color: #f0f0f0;
+		}
+
+		@media (min-width: 768px) {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 0.5rem;
+		}
+	}
+
+	&__article-list-item {
+		padding: 10px 20px;
+		border: 1px solid #ccc;
+		margin-bottom: 20px;
+	}
+}

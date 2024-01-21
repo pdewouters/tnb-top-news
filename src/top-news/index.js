@@ -1,5 +1,5 @@
 import { registerBlockType } from '@wordpress/blocks';
-import {useInnerBlocksProps} from '@wordpress/block-editor';
+import { useInnerBlocksProps } from '@wordpress/block-editor';
 import './style.scss';
 
 /**
@@ -9,9 +9,6 @@ import Edit from './edit';
 import metadata from './block.json';
 
 registerBlockType( metadata.name, {
-	/**
-	 * @see ./edit.js
-	 */
 	edit: Edit,
-	save: () => <section {...useInnerBlocksProps.save()} />,
+	save: () => <section { ...useInnerBlocksProps.save() } />,
 } );

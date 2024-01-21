@@ -24,10 +24,10 @@ export default function App( { tabsData } ) {
 							key={ tab }
 							tabId={ panelIndex === 0 ? defaultSelectedId : tab }
 						>
-							<h3>
+							<h3 className='tnb-top_news__heading'>
 								Headlines for { tabsData[ tab ].countryName }
 							</h3>
-							<ul>
+							<ul className='tnb-top_news__article-list'>
 								{ tabsData[ tab ].articles.map(
 									( article, index ) => (
 										<Article
