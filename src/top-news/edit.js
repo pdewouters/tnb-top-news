@@ -35,42 +35,42 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 console.log(innerBlocks);
 	const defaultSelectedId = 'default-selected-tab';
 	return (
-		<div { ...blockProps }>
-			<div { ...innerBlocksProps } />
-			<Ariakit.TabProvider defaultSelectedId={ defaultSelectedId }>
+		<div {...blockProps}>
+			<div {...innerBlocksProps} />
+			<Ariakit.TabProvider defaultSelectedId={defaultSelectedId}>
 				<Ariakit.TabList className="tab-list" aria-label="Top News">
-					{ Object.keys( countries ).map( ( country, index ) => (
+					{Object.keys(countries).map((country, index) => (
 						<Ariakit.Tab
-							key={ country }
-							id={ index === 0 ? defaultSelectedId : country }
+							key={country}
+							id={index === 0 ? defaultSelectedId : country}
 							className="tab"
 						>
-							{ countries[ country ] }
+							{countries[country]}
 						</Ariakit.Tab>
-					) ) }
+					))}
 				</Ariakit.TabList>
 				<div className="panels">
-					{innerBlocks.map(({attributes}, panelIndex) => {
+					{innerBlocks.map(({ attributes }, panelIndex) => {
 						return (
 							<Ariakit.TabPanel
-								key={ attributes.countryCode }
-								tabId={ panelIndex === 0 ? defaultSelectedId : attributes.countryCode }
+								key={attributes.countryCode}
+								tabId={
+									panelIndex === 0 ? defaultSelectedId : attributes.countryCode
+								}
 							>
-								<h3>
-									Headlines for { countries[attributes.countryCode] }
-								</h3>
-								<ul>
-									{ attributes.articles.map(
-										( article, index ) => (
-											<Article
-												key={ `article-${ countries[attributes.countryCode] }-${ index }` }
-												articleData={ article }
-											/>
-										)
-									) }
+								<h3 className='tnb-top_news__heading'>Headlines for {countries[attributes.countryCode]}</h3>
+								<ul className="tnb-top_news__article-list">
+									{attributes.articles.map((article, index) => (
+										<Article
+											key={`article-${
+												countries[attributes.countryCode]
+											}-${index}`}
+											articleData={article}
+										/>
+									))}
 								</ul>
 							</Ariakit.TabPanel>
-						)
+						);
 					})}
 				</div>
 			</Ariakit.TabProvider>
