@@ -19,7 +19,7 @@ use WP_REST_Server;
  * @return void
  */
 function setup(): void {
-	\add_action( 'rest_api_init', __NAMESPACE__ . '\register_rest_routes' );
+	add_action( 'rest_api_init', __NAMESPACE__ . '\register_rest_routes' );
 }
 
 /**

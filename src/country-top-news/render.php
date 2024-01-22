@@ -15,7 +15,7 @@ use TNB_Top_News\Utils;
 $tnb_country_code   = $attributes['countryCode'];
 $tnb_articles       = API\get_articles( $tnb_country_code );
 $tnb_country_name   = Utils\get_country_name( $tnb_country_code );
-$tnb_handle         = \generate_block_asset_handle( 'tnb/top-news', 'viewScript' );
+$tnb_handle         = generate_block_asset_handle( 'tnb/top-news', 'viewScript' );
 $tnb_inline_script  = '';
 $tnb_inline_script .= 'if (typeof tnbTopNewsAppData === "undefined") { var tnbTopNewsAppData = {}; }' . PHP_EOL;
 $tnb_inline_script .= 'tnbTopNewsAppData.' . $tnb_country_code . ' = ' . \wp_json_encode(
@@ -25,4 +25,4 @@ $tnb_inline_script .= 'tnbTopNewsAppData.' . $tnb_country_code . ' = ' . \wp_jso
 	]
 ) . ';' . PHP_EOL;
 
-\wp_add_inline_script( $tnb_handle, $tnb_inline_script, 'before' );
+wp_add_inline_script( $tnb_handle, $tnb_inline_script, 'before' );

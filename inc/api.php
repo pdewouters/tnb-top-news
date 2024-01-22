@@ -62,7 +62,7 @@ function fetch_articles( string $country_code ): array {
  * @return array
  */
 function get_articles( string $country_code ): array {
-	$articles = \get_transient( TNB_TOP_NEWS_TRANSIENT_KEY . $country_code );
+	$articles = get_transient( TNB_TOP_NEWS_TRANSIENT_KEY . $country_code );
 	if ( $articles === false ) {
 		return [];
 	}
