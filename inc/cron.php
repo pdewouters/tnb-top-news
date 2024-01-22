@@ -47,6 +47,10 @@ function add_cron_interval( array $schedules ): array {
  * @return void
  */
 function schedule_import(): void {
+	$api_key = get_option( 'newsapi_api_key' );
+	if ( empty( $api_key ) ) {
+		return;
+	}
 	if ( ! wp_next_scheduled( 'import_news_hook' ) ) {
 		wp_schedule_event( time(), 'every_two_minutes', 'import_news_hook' );
 	}
@@ -58,14 +62,21 @@ function schedule_import(): void {
  * @return void
  */
 function import_news(): void {
-	$base_expiration  = 1 * HOUR_IN_SECONDS;
-	$random_extension = wp_rand( 0, 1 * MINUTE_IN_SECONDS );
-	$expiration       = $base_expiration + $random_extension;
 	foreach ( Utils\COUNTRIES as $country_code => $country_name ) {
 		$articles = API\fetch_articles( $country_code );
 		if ( empty( $articles ) ) {
 			continue;
 		}
-		set_transient( API\TNB_TOP_NEWS_TRANSIENT_KEY . $country_code, $articles, $expiration );
+		// Do not expire.
+		set_transient( API\TNB_TOP_NEWS_TRANSIENT_KEY . $country_code, $articles );
 	}
+}
+
+/**
+ * Clear scheduled events.
+ *
+ * @return void
+ */
+function clear_scheduled_events(): void {
+	wp_clear_scheduled_hook( 'import_news_hook' );
 }

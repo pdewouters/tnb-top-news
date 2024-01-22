@@ -8,6 +8,7 @@
 declare( strict_types=1 );
 
 namespace TNB_Top_News\Admin;
+use TNB_Top_News\CRON;
 
 /**
  * Setup hooks.
@@ -15,8 +16,8 @@ namespace TNB_Top_News\Admin;
  * @return void
  */
 function setup(): void {
-	\add_action( 'admin_init', __NAMESPACE__ . '\\register_settings' );
-	add_action( 'updated_option', __NAMESPACE__ . '\\clear_transients', 10, 3 );
+	add_action( 'admin_init', __NAMESPACE__ . '\\register_settings' );
+	add_action( 'updated_option', __NAMESPACE__ . '\\handle_update_option', 10, 3 );
 }
 
 /**
@@ -62,10 +63,8 @@ function newsapi_api_key_field_html(): void {
  *
  * @return void
  */
-function clear_transients( $option_name,  $old_value, $value ): void {
+function handle_update_option( $option_name, $old_value, $value ): void {
 	if ( $option_name === 'newsapi_api_key' && ! empty( $value ) ) {
-		foreach ( [ 'gb', 'us', 'fr', 'in', 'au' ] as $country_code ) {
-			\delete_transient( 'tnb_top_news_' . $country_code );
-		}
+		CRON\schedule_import();
 	}
 }
