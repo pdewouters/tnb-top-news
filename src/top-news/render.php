@@ -9,8 +9,5 @@ declare( strict_types=1 );
 ?>
 
 <div id="tnb-top-news-app" <?php echo wp_kses_data( get_block_wrapper_attributes() ); ?>>
-	<?php
-	/** @var string $content */
-	echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	?>
+	<?php echo $content; ?>
 </div>

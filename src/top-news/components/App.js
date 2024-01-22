@@ -1,48 +1,42 @@
 import * as Ariakit from '@ariakit/react';
-import { __, sprintf } from '@wordpress/i18n';
 
-import Article from './Article';
+import CountryPanel from './CountryPanel';
 
-export default function App( { tabsData } ) {
+const countries = {
+	gb: 'United Kingdom',
+	us: 'United States',
+	fr: 'France',
+	au: 'Australia',
+	in: 'India',
+};
+
+export default function App() {
 	const defaultSelectedId = 'default-selected-tab';
 	return (
 		<>
 			<Ariakit.TabProvider defaultSelectedId={ defaultSelectedId }>
 				<Ariakit.TabList className="tab-list" aria-label="Top News">
-					{ Object.keys( tabsData ).map( ( tab, index ) => (
+					{ Object.keys( countries ).map( ( countryCode, index ) => (
 						<Ariakit.Tab
-							key={ tab }
-							id={ index === 0 ? defaultSelectedId : tab }
+							key={ countryCode }
+							id={ index === 0 ? defaultSelectedId : countryCode }
 							className="tab"
 						>
-							{ tabsData[ tab ].countryName }
+							{ countries[ countryCode ] }
 						</Ariakit.Tab>
 					) ) }
 				</Ariakit.TabList>
 				<div className="panels">
-					{ Object.keys( tabsData ).map( ( tab, panelIndex ) => (
-						<Ariakit.TabPanel
-							key={ tab }
-							tabId={ panelIndex === 0 ? defaultSelectedId : tab }
-						>
-							<h3 className="tnb-top_news__heading">
-								{ sprintf(
-									__( 'Headlines for %s', 'tnb-top-news' ),
-									tabsData[ tab ].countryName
-								) }
-							</h3>
-							<ul className="tnb-top_news__article-list">
-								{ tabsData[ tab ].articles.map(
-									( article, index ) => (
-										<Article
-											key={ `article-${ tabsData[ tab ].countryName }-${ index }` }
-											articleData={ article }
-										/>
-									)
-								) }
-							</ul>
-						</Ariakit.TabPanel>
-					) ) }
+					{ Object.keys( countries ).map(
+						( countryCode, panelIndex ) => (
+							<CountryPanel
+								key={ countryCode }
+								countryCode={ countryCode }
+								panelIndex={ panelIndex }
+								defaultSelectedId={ defaultSelectedId }
+							/>
+						)
+					) }
 				</div>
 			</Ariakit.TabProvider>
 		</>

@@ -1,88 +1,17 @@
-import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
-import * as Ariakit from '@ariakit/react';
-import { useSelect } from '@wordpress/data';
+import { useBlockProps } from '@wordpress/block-editor';
 
-import Article from './components/Article';
+import App from './components/App';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-const countries = {
-	gb: 'United Kingdom',
-	us: 'United States',
-	fr: 'France',
-	au: 'Australia',
-	in: 'India',
-};
-const TEMPLATE = [
-	[ 'tnb/country-top-news', { countryCode: 'gb' } ],
-	[ 'tnb/country-top-news', { countryCode: 'us' } ],
-	[ 'tnb/country-top-news', { countryCode: 'fr' } ],
-	[ 'tnb/country-top-news', { countryCode: 'au' } ],
-	[ 'tnb/country-top-news', { countryCode: 'in' } ],
-];
-export default function Edit( { clientId } ) {
+
+export default function Edit() {
 	const blockProps = useBlockProps( { className: 'wrapper' } );
-	const innerBlocksProps = useInnerBlocksProps(
-		{ className: 'panels' },
-		{
-			allowedBlocks: [ 'tnb/country-top-news' ],
-			template: TEMPLATE,
-			renderAppender: false,
-		}
-	);
-	const innerBlocks = useSelect(
-		( select ) =>
-			select( 'core/block-editor' ).getBlock( clientId ).innerBlocks
-	);
-
-	const defaultSelectedId = 'default-selected-tab';
+	const queryClient = new QueryClient();
 	return (
 		<div { ...blockProps }>
-			<div { ...innerBlocksProps } />
-			<Ariakit.TabProvider defaultSelectedId={ defaultSelectedId }>
-				<Ariakit.TabList className="tab-list" aria-label="Top News">
-					{ Object.keys( countries ).map( ( country, index ) => (
-						<Ariakit.Tab
-							key={ country }
-							id={ index === 0 ? defaultSelectedId : country }
-							className="tab"
-						>
-							{ countries[ country ] }
-						</Ariakit.Tab>
-					) ) }
-				</Ariakit.TabList>
-				<div className="panels">
-					{ innerBlocks.map( ( { attributes }, panelIndex ) => {
-						return (
-							<Ariakit.TabPanel
-								key={ attributes.countryCode }
-								tabId={
-									panelIndex === 0
-										? defaultSelectedId
-										: attributes.countryCode
-								}
-							>
-								<h3 className="tnb-top_news__heading">
-									Headlines for{ ' ' }
-									{ countries[ attributes.countryCode ] }
-								</h3>
-								<ul className="tnb-top_news__article-list">
-									{ attributes.articles.map(
-										( article, index ) => (
-											<Article
-												key={ `article-${
-													countries[
-														attributes.countryCode
-													]
-												}-${ index }` }
-												articleData={ article }
-											/>
-										)
-									) }
-								</ul>
-							</Ariakit.TabPanel>
-						);
-					} ) }
-				</div>
-			</Ariakit.TabProvider>
+			<QueryClientProvider client={ queryClient }>
+				<App />
+			</QueryClientProvider>
 		</div>
 	);
 }
