@@ -29,7 +29,4 @@ function register_block_types(): void {
 	register_block_type(
 		DIR . '/build/top-news'
 	);
-	register_block_type(
-		DIR . '/build/country-top-news'
-	);
 }
