@@ -1,0 +1,65 @@
+# Copyright (C) 2024 Paul de Wouters
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Tnb Top News 0.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/tnb-top-news\n"
+"POT-Creation-Date: 2024-01-22T19:50:58+00:00\n"
+"PO-Revision-Date: 2024-01-22 19:53+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+"X-Domain: tnb-top-news\n"
+
+#. Plugin Name of the plugin
+msgid "Tnb Top News"
+msgstr ""
+
+#. Description of the plugin
+msgid "Displays the top news articles from the NEWS API."
+msgstr ""
+
+#. Author of the plugin
+msgid "Paul de Wouters"
+msgstr ""
+
+#: build/top-news/index.js:102 build/top-news/view.js:102
+#: src/top-news/components/Article.js:29 build/top-news/index.js:74
+#: build/top-news/view.js:74
+msgid "Read full article"
+msgstr ""
+
+#. translators: %s: author name
+#: build/top-news/index.js:107 build/top-news/view.js:107
+#: src/top-news/components/Article.js:38 build/top-news/index.js:83
+#: build/top-news/view.js:83
+msgid "Published by %s "
+msgstr ""
+
+#. translators: %1$s: human readable date, %2$s: human readable time
+#: build/top-news/index.js:110 build/top-news/view.js:110
+#: src/top-news/components/Article.js:44 build/top-news/index.js:89
+#: build/top-news/view.js:89
+msgid "on %1$s, at %2$s"
+msgstr ""
+
+#. translators: %s: country name
+#: build/top-news/index.js:184 build/top-news/view.js:184
+#: src/top-news/components/CountryPanel.js:48 build/top-news/index.js:154
+#: build/top-news/view.js:154
+msgid "Headlines for %s"
+msgstr ""
+
+#: build/top-news/block.json src/top-news/block.json
+msgctxt "block title"
+msgid "Top News"
+msgstr ""
+
+#: build/top-news/block.json src/top-news/block.json
+msgctxt "block description"
+msgid "Top news from several countries."
+msgstr ""

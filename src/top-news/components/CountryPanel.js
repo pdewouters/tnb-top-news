@@ -26,6 +26,7 @@ export default function CountryPanel( {
 			} );
 			return response.data;
 		} catch ( error ) {
+			// eslint-disable-next-line no-console
 			console.error( 'Error fetching data:', error );
 		}
 	};

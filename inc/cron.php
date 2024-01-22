@@ -35,7 +35,7 @@ function setup(): void {
 function add_cron_interval( array $schedules ): array {
 	$schedules['every_two_minutes'] = [
 		'interval' => 2 * MINUTE_IN_SECONDS,
-		'display'  => esc_html__( 'Every Two Minutes', 'tnb-top-news' ),
+		'display'  => esc_html__( 'Every Two Minutes', 'tnb-top-news-admin' ),
 	];
 
 	return $schedules;

@@ -8,6 +8,7 @@
 declare( strict_types=1 );
 
 namespace TNB_Top_News\Admin;
+
 use TNB_Top_News\CRON;
 
 /**

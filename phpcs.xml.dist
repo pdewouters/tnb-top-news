@@ -41,6 +41,7 @@
 		<properties>
 			<property name="text_domain" type="array">
 				<element value="tnb-top-news"/>
+				<element value="tnb-top-news-admin"/>
 			</property>
 		</properties>
 	</rule>
