@@ -9,6 +9,14 @@ declare( strict_types=1 );
 
 namespace TNB_Top_News\Utils;
 
+const COUNTRIES = [
+	'gb' => 'United Kingdom',
+	'us' => 'United States',
+	'fr' => 'France',
+	'in' => 'India',
+	'au' => 'Australia',
+];
+
 /**
  * Get block wrapper attributes.
  *
@@ -17,13 +25,5 @@ namespace TNB_Top_News\Utils;
  * @return string
  */
 function get_country_name( string $country_code ): string {
-	$countries = [
-		'gb' => 'United Kingdom',
-		'us' => 'United States',
-		'fr' => 'France',
-		'in' => 'India',
-		'au' => 'Australia',
-	];
-
-	return $countries[ $country_code ] ?? '';
+	return COUNTRIES[ $country_code ] ?? '';
 }

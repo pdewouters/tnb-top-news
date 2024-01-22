@@ -55,22 +55,16 @@ function fetch_articles( string $country_code ): array {
 }
 
 /**
- * Fetch articles from cache or API.
+ * Fetch articles from cache.
  *
  * @param string $country_code Country code.
  *
  * @return array
  */
 function get_articles( string $country_code ): array {
-	$base_expiration  = 1 * HOUR_IN_SECONDS;
-	$random_extension = wp_rand( 0, 1 * MINUTE_IN_SECONDS );
-	$expiration       = $base_expiration + $random_extension;
-	$articles         = \get_transient( TNB_TOP_NEWS_TRANSIENT_KEY . $country_code );
+	$articles = \get_transient( TNB_TOP_NEWS_TRANSIENT_KEY . $country_code );
 	if ( $articles === false ) {
-		$articles = fetch_articles( $country_code );
-		if ( ! empty( $articles ) ) {
-			\set_transient( TNB_TOP_NEWS_TRANSIENT_KEY . $country_code, $articles, $expiration );
-		}
+		return [];
 	}
 
 	return $articles;

@@ -17,6 +17,7 @@ namespace TNB_Top_News;
 function setup(): void {
 	Blocks\setup();
 	REST\setup();
+	CRON\setup();
 
 	if ( \is_admin() ) {
 		Admin\setup();
