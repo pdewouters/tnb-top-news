@@ -18,6 +18,7 @@ function setup(): void {
 	Blocks\setup();
 	REST\setup();
 	CRON\setup();
+	Activate_Deactivate\setup();
 
 	if ( \is_admin() ) {
 		Admin\setup();
