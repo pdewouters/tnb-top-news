@@ -24,7 +24,7 @@ export default function Article( { articleData } ) {
 			<article className="tnb-top_news__article">
 				<h4 className="tnb-top_news__article-title">{ title }</h4>
 				<p className="tnb-top_news__article-link">
-					<a href={ url } target="__blank">
+					<a href={ url } target="_blank">
 						<>
 							{ __( 'Read full article', 'tnb-top-news' ) }
 							<span aria-hidden="true">↗</span>
