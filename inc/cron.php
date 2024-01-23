@@ -47,12 +47,13 @@ function add_cron_interval( array $schedules ): array {
  * @return void
  */
 function schedule_import(): void {
-	$api_key = get_option( 'newsapi_api_key' );
+	$api_key  = get_option( 'tnb_settings_api_key' );
+	$schedule = \get_option( 'tnb_settings_cron_schedule' );
 	if ( empty( $api_key ) ) {
 		return;
 	}
 	if ( ! wp_next_scheduled( 'import_news_hook' ) ) {
-		wp_schedule_event( time(), 'every_two_minutes', 'import_news_hook' );
+		wp_schedule_event( time(), $schedule, 'import_news_hook' );
 	}
 }
 

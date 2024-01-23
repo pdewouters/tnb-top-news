@@ -32,7 +32,7 @@ function fetch_articles( string $country_code ): array {
 		),
 		[
 			'headers' => [
-				'X-Api-Key'  => get_option( 'newsapi_api_key' ),
+				'X-Api-Key'  => get_option( 'tnb_settings_api_key' ),
 				'User-Agent' => 'TNB Top News',
 			],
 		]

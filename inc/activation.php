@@ -35,5 +35,6 @@ function deactivate(): void {
 		\delete_transient( API\TNB_TOP_NEWS_TRANSIENT_KEY . $country );
 	}
 
-	\delete_option( 'newsapi_api_key' );
+	\delete_option( 'tnb_settings_api_key' );
+	\delete_option( 'tnb_settings_cron_schedule' );
 }
