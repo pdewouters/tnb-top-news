@@ -20,11 +20,12 @@
 .tab-list {
 	display: flex;
 	gap: 0.5rem;
+	overflow-x: auto;
 }
 
 .tab {
 	display: flex;
-	height: 2.5rem;
+	height: 3rem;
 	align-items: center;
 	justify-content: center;
 	gap: 0.5rem;
@@ -45,17 +46,17 @@
 }
 
 .tab[aria-selected="true"] {
-	background-color: hsl(204 100% 40%);
+	background-color: #b80000;
 	color: hsl(204 20% 100%);
 }
 
 .tab:hover[aria-selected="true"] {
-	background-color: hsl(204 100% 32%);
+	background-color: #b80000;
 }
 
 .tab:focus-visible,
 .tab[data-focus-visible] {
-	outline: 2px solid hsl(204 100% 40%);
+	outline: 2px solid #b80000;
 	outline-offset: 2px;
 }
 
@@ -64,12 +65,12 @@
 }
 
 :is(:where(.dark) .tab[aria-selected="true"]) {
-	background-color: hsl(204 100% 40%);
+	background-color: #b80000;
 	color: hsl(204 20% 100%);
 }
 
 :is(:where(.dark) .tab:hover[aria-selected="true"]) {
-	background-color: hsl(204 100% 32%);
+	background-color: #b80000;
 }
 
 .panels {
