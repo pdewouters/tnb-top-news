@@ -19,6 +19,7 @@ use TNB_Top_News\CRON;
 function setup(): void {
 	add_action( 'admin_init', __NAMESPACE__ . '\\register_settings' );
 	add_action( 'updated_option', __NAMESPACE__ . '\\handle_update_option', 10, 3 );
+	add_action( 'admin_notices', __NAMESPACE__ . '\\check_api_key' );
 }
 
 /**
@@ -67,5 +68,23 @@ function newsapi_api_key_field_html(): void {
 function handle_update_option( $option_name, $old_value, $value ): void {
 	if ( $option_name === 'newsapi_api_key' && ! empty( $value ) ) {
 		CRON\schedule_import();
+	}
+}
+
+/**
+ * Check API key and display admin notice if it's empty.
+ *
+ * @return void
+ */
+function check_api_key(): void {
+	$api_key = get_option( 'newsapi_api_key' );
+	if ( empty( $api_key ) ) {
+		?>
+		<div class="notice notice-error">
+			<p>
+				<?php esc_html_e( 'Please enter your NewsAPI API Key.', 'tnb-top-news-admin' ); ?>
+			</p>
+		</div>
+		<?php
 	}
 }
