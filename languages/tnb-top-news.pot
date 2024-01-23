@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-01-22T19:50:58+00:00\n"
+"POT-Creation-Date: 2024-01-23T08:14:01+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.8.1\n"
 "X-Domain: tnb-top-news\n"
@@ -53,12 +53,36 @@ msgid "on %1$s, at %2$s"
 msgstr ""
 
 #. translators: %s: country name
-#: build/top-news/index.js:184
-#: build/top-news/view.js:184
-#: src/top-news/components/CountryPanel.js:48
-#: build/top-news/index.js:154
-#: build/top-news/view.js:154
-msgid "Headlines for %s"
+#: build/top-news/index.js:185
+#: build/top-news/view.js:185
+#: src/top-news/components/CountryPanel.js:50
+#: build/top-news/index.js:156
+#: build/top-news/view.js:156
+msgid "Top news from %s"
+msgstr ""
+
+#: build/top-news/index.js:216
+#: build/top-news/view.js:216
+#: src/top-news/components/PanelContent.js:6
+#: build/top-news/index.js:171
+#: build/top-news/view.js:171
+msgid "An error occurred"
+msgstr ""
+
+#: build/top-news/index.js:219
+#: build/top-news/view.js:219
+#: src/top-news/components/PanelContent.js:9
+#: build/top-news/index.js:174
+#: build/top-news/view.js:174
+msgid "Loading…"
+msgstr ""
+
+#: build/top-news/index.js:222
+#: build/top-news/view.js:222
+#: src/top-news/components/PanelContent.js:12
+#: build/top-news/index.js:177
+#: build/top-news/view.js:177
+msgid "No articles found"
 msgstr ""
 
 #: build/top-news/block.json

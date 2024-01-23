@@ -1,7 +1,7 @@
-import Article from './Article';
 import * as Ariakit from '@ariakit/react';
 import { useQuery } from '@tanstack/react-query';
 import apiFetch from '@wordpress/api-fetch';
+import PanelContent from './PanelContent';
 import { __, sprintf } from '@wordpress/i18n';
 
 const countries = {
@@ -35,28 +35,24 @@ export default function CountryPanel( {
 		queryFn: fetchCountryArticles,
 	} );
 
-	if ( isPending ) return <div>Loading...</div>;
-	if ( isError ) return <div>An error occurred</div>;
+	// eslint-disable-next-line no-nested-ternary
+	const status = isPending ? 'loading' : isError ? 'error' : 'success';
+
 	return (
 		<Ariakit.TabPanel
 			key={ countryCode }
 			tabId={ panelIndex === 0 ? defaultSelectedId : countryCode }
 		>
-			<h3 className="tnb-top_news__heading">
-				{ sprintf(
-					/* translators: %s: country name */
-					__( 'Headlines for %s', 'tnb-top-news' ),
-					countries[ countryCode ]
-				) }
-			</h3>
-			<ul className="tnb-top_news__article-list">
-				{ data.map( ( article, index ) => (
-					<Article
-						key={ `article-${ countries[ countryCode ] }-${ index }` }
-						articleData={ article }
-					/>
-				) ) }
-			</ul>
+			<>
+				<h2 className="tnb-top_news__country-title">
+					{ sprintf(
+						/** translators: %s: country name */
+						__( 'Top news from %s', 'tnb-top-news' ),
+						countries[ countryCode ]
+					) }
+				</h2>
+				<PanelContent status={ status } articles={ data } />
+			</>
 		</Ariakit.TabPanel>
 	);
 }
