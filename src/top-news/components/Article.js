@@ -24,7 +24,7 @@ export default function Article( { articleData } ) {
 			<article className="tnb-top_news__article">
 				<h4 className="tnb-top_news__article-title">{ title }</h4>
 				<p className="tnb-top_news__article-link">
-					<a href={ url } target="_blank">
+					<a href={ url } target="_blank" rel="noreferrer">
 						<>
 							{ __( 'Read full article', 'tnb-top-news' ) }
 							<span aria-hidden="true">↗</span>
@@ -51,7 +51,7 @@ export default function Article( { articleData } ) {
 					{ sprintf(
 						/** translators: %s: source name */
 						__( 'Source: %s', 'your-text-domain' ),
-						source.name
+						source.name || 'Unknown'
 					) }
 				</p>
 			</article>
