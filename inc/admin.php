@@ -20,7 +20,6 @@ function setup(): void {
 	add_action( 'admin_menu', __NAMESPACE__ . '\\top_news_menu_page' );
 	add_action( 'admin_init', __NAMESPACE__ . '\\register_settings' );
 	add_action( 'admin_notices', __NAMESPACE__ . '\\check_api_key' );
-	add_action( 'init', __NAMESPACE__ . '\\CRON\\schedule_import' );
 }
 
 /**
