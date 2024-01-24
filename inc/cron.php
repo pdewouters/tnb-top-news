@@ -48,10 +48,8 @@ function add_cron_interval( array $schedules ): array {
  */
 function schedule_import(): void {
 	$api_key  = get_option( 'tnb_settings_api_key' );
-	$schedule = \get_option( 'tnb_settings_cron_schedule' );
-	if ( empty( $api_key ) ) {
-		return;
-	}
+	$schedule = \get_option( 'tnb_settings_cron_schedule', 'twicedaily' );
+
 	if ( ! wp_next_scheduled( 'import_news_hook' ) ) {
 		wp_schedule_event( time(), $schedule, 'import_news_hook' );
 	}
