@@ -1,8 +1,8 @@
 {
 	"name": "tnb-top-news",
 	"version": "0.1.0",
-	"description": "Example block scaffolded with Create Block tool.",
-	"author": "The WordPress Contributors",
+	"description": "Displays the top news articles.",
+	"author": "Paul de Wouters",
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",
 	"scripts": {
@@ -18,5 +18,11 @@
 	"devDependencies": {
 		"@wordpress/env": "^9.1.0",
 		"@wordpress/scripts": "^27.0.0"
+	},
+	"dependencies": {
+		"@ariakit/react": "^0.4.0",
+		"@tanstack/query-sync-storage-persister": "^5.17.19",
+		"@tanstack/react-query": "^5.17.19",
+		"@tanstack/react-query-persist-client": "^5.17.19"
 	}
 }
