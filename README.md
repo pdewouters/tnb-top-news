@@ -24,7 +24,7 @@ Once the process is finished, you can visit http://localhost:8888/wp-admin to ac
 
 The plugin will already be installed and activated.
 
-Next navigate to Settings > General, and enter your API key in the Top News API Key field.
+Next navigate to Settings > Top News, and enter your API key in the Top News API Key field.
 
 Finally, add the "Top News" block to any page or post to display the top news from the NewsAPI service.
 
